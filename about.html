@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | SurdoHelp</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background: none;
+    color: #333;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/sch.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7; /* Прозрачность от 0 до 1 */
+    z-index: -1;  /* Помещаем слой под весь контент */
+}
+      
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #34495e;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #2c3e50;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .about-us {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .about-us h2 {
+            color: #2c3e50;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-content img {
+            max-width: 300px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-school {
+            background: #fdfdfd;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        .about-school h3 {
+            color: #2c3e50;
+        }
+
+        .about-school ul {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .about-school ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>surdohelp.ru</h1>
+        <p>Информационная поддержка глухих и слабослышащих детей</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="parents.html">Родителям</a>
+        <a href="children.html">Детям</a>
+        <a href="about.html">О нас</a>
+    </nav>
+
+    <div class="container">
+        <div class="about-us">
+            <h2>О нас</h2>
+            <div class="about-content">
+                <img src="images/creator.jpg" alt="Создатель сайта — Ульданов Алмас">
+                <div class="about-text">
+                    <p>Этот сайт был создан при поддержке ГБОУ УКШИ №30 для глухих и слабослышащих обучающихся с большой душой и ответственностью. Здесь вы найдёте полезные материалы, развивающие игры, а также советы по воспитанию и обучению детей с нарушением слуха.</p>
+                    <p>Спасибо, что заглянули на наш сайт. Надеюсь, он окажется полезным для вас и ваших близких!</p>
+                </div>
+            </div>
+
+            <div class="about-school">
+                <h3>О ГБОУ УКШИ №30</h3>
+                <p><strong>ГБОУ УКШИ №30</strong> — это специализированное учебное заведение для глухих и слабослышащих детей, расположенное в Уфе. Школа оказывает комплексную помощь детям с нарушением слуха, обеспечивая не только академическое образование, но и речевую, социальную и психологическую поддержку.</p>
+
+                <p>Здесь работают высококвалифицированные специалисты: сурдопедагоги, логопеды, дефектологи, психологи и воспитатели. Образовательная программа адаптирована под потребности обучающихся, используется индивидуальный подход, применяются современные методы развития слуха и речи, в том числе:</p>
+
+                <ul>
+                    <li>интенсивные логопедические занятия;</li>
+                    <li>развитие слухового восприятия и устной речи;</li>
+                    <li>использование жестового языка и альтернативных средств коммуникации;</li>
+                    <li>интеграция в общеобразовательную среду с поддержкой специалистов.</li>
+                </ul>
+
+                <p>Школа активно сотрудничает с родителями, помогая им стать частью образовательного и коррекционного процесса. Также проводятся мастер-классы, консультации, родительские клубы и совместные мероприятия.</p>
+
+                <p><strong>Адрес:</strong>г.Уфа, Калининский район, ул. Первомайская, д. 86А, Уфа<br>
+                <strong>Сайт:</strong> <a href="https://ukshi30.02edu.ru//" target="_blank">ukshi30spb.ru</a><br>
+                <strong>Телефон:</strong> +7 (347) 264-11-02</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>surdohelp.ru &copy; 2025 | Поддержка глухих и слабослышащих</p>
+    </footer>
+</body>
+</html>

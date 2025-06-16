@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Игра: Угадай жест</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    img {
+      width: 300px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1a252f;
+    }
+
+    #result {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Игра: Угадай жест</h1>
+  <p>Посмотри на фото и угадай, какую букву показывает жест.</p>
+
+  <img id="question-image" src="" alt="Жест" />
+
+  <form id="quiz-form">
+    <input type="text" id="answer" placeholder="Введите букву" autocomplete="off">
+    <br><br>
+    <button type="submit">Проверить</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    const alphabetData = [
+      { letter: "А", image: "images/a.jpg" },
+      { letter: "Б", image: "images/b.jpg" },
+      { letter: "В", image: "images/v.jpg" },
+      { letter: "Г", image: "images/g.jpg" },
+      { letter: "Д", image: "images/d.jpg" },
+      { letter: "Е", image: "images/e.jpg" },
+      { letter: "Ж", image: "images/zh.jpg" },
+      { letter: "З", image: "images/z.jpg" },
+      { letter: "И", image: "images/i.jpg" },
+      { letter: "Й", image: "images/j.jpg" },
+      { letter: "К", image: "images/k.jpg" },
+      { letter: "Л", image: "images/l.jpg" },
+      { letter: "М", image: "images/m.jpg" },
+      { letter: "Н", image: "images/n.jpg" },
+      { letter: "О", image: "images/o.jpg" },
+      { letter: "П", image: "images/p.jpg" },
+      { letter: "Р", image: "images/r.jpg" },
+      { letter: "С", image: "images/s.jpg" },
+      { letter: "Т", image: "images/t.jpg" },
+      { letter: "У", image: "images/u.jpg" },
+      { letter: "Ф", image: "images/f.jpg" },
+      { letter: "Х", image: "images/h.jpg" },
+      { letter: "Ц", image: "images/ts.jpg" },
+      { letter: "Ч", image: "images/ch.jpg" },
+      { letter: "Ш", image: "images/sh.jpg" },
+      { letter: "Щ", image: "images/sch1.jpg" },
+      { letter: "Ы", image: "images/y.jpg" },
+      { letter: "Ь", image: "images/soft.jpg" },
+      { letter: "Э", image: "images/e2.jpg" },
+      { letter: "Ю", image: "images/yu.jpg" },
+      { letter: "Я", image: "images/ya.jpg" }
+    ];
+
+    let currentQuestion = null;
+
+    function showNewQuestion() {
+      currentQuestion = alphabetData[Math.floor(Math.random() * alphabetData.length)];
+      const imageElement = document.getElementById("question-image");
+      imageElement.src = currentQuestion.image;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      showNewQuestion();
+
+      document.getElementById("quiz-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const userAnswer = document.getElementById("answer").value.trim().toUpperCase();
+        const result = document.getElementById("result");
+
+        if (userAnswer === currentQuestion.letter) {
+          result.textContent = "Правильно!";
+          result.style.color = "green";
+        } else {
+          result.textContent = `Неправильно. Это была буква: ${currentQuestion.letter}`;
+          result.style.color = "red";
+        }
+
+        setTimeout(() => {
+          document.getElementById("answer").value = "";
+          result.textContent = "";
+          showNewQuestion();
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

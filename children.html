@@ -1,0 +1,354 @@
+<!DOCTYPE html> 
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Детям - SurdoHelp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      background: none;
+      color: #333;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/deti.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    header, footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+.intro {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .intro h2 {
+      margin-top: 0;
+      color: #2980b9;
+      font-weight: bold;
+    }
+.intro p {
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      background: #2c3e50;
+    }
+
+    .container {
+      width: 85%;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    .intro, .quiz, .section-card, .gallery img {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .quiz img, .letter-card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .section-description {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-card {
+      flex: 1 1 45%;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      width: 80%;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1a252f;
+    }
+
+    .alphabet-video-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .alphabet-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      max-width: 400px;
+    }
+
+    .alphabet-buttons button {
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50px;
+      text-align: center;
+    }
+
+    .alphabet-buttons button:hover {
+      background: #2980b9;
+    }
+
+    .video-display {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-description, .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-card, .gallery img {
+        width: 90%;
+      }
+
+      .alphabet-video-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .video-display video {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>surdohelp.ru</h1>
+    <p>Информационная поддержка глухих и слабослышащих детей</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="parents.html">Родителям</a>
+    <a href="children.html">Детям</a>
+    <a href="about.html">О нас</a>
+  </nav>
+
+  <div class="container">
+    <div class="intro">
+      <p>Привет, дорогой друг! Здесь ты сможешь выучить жестовый алфавит, потренировать память и внимание, а ещё поиграть и узнать много нового!</p>
+    </div>
+
+    <div class="quiz">
+      <h3>Жестовый алфавит</h3>
+      <div class="alphabet-video-layout">
+        <div class="alphabet-buttons" id="alphabet-buttons"></div>
+        <div class="video-display">
+          <video id="sign-video" width="300" controls autoplay muted loop></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz">
+      <h3>Игра: Угадай жест</h3>
+      <a href="game.html" target="_blank"><button>Начать игру</button></a>
+    </div>
+
+    <div class="section-description">
+      <div class="section-card">
+        <h3>Развивающие игры</h3>
+        <p>В этом разделе ты найдёшь текстовые описания игр, которые помогут развить речь, внимание, память и воображение. Каждая игра доступна для самостоятельного проведения дома или в классе.</p>
+        <ul>
+          <li>
+            <strong>«Построй историю»</strong><br>
+            Выбери три слова из списка (например, «солнце», «машина», «бегать») и составь короткую историю: «Солнце светит, машина мчится вперёд, а мальчик бежит навстречу». Затем придумай альтернативный вариант: «Машина останавливается в тени, солнце прячется за облака, а мальчик берет книгу и садится читать». Игра тренирует воображение, умение строить связный рассказ и формировать предложения.
+          </li>
+          <li>
+            <strong>«Найди пару жестов»</strong><br>
+            Возьми карточки с напечатанными словами и карточки с описанием жеста (сложи руку в определённую форму, покажи). Ребёнку нужно сопоставить слово и связанный с ним жест, исходя из описания. Например, «яблоко» – сожми кулак и постучи большим пальцем по пальцам. Такая игра помогает запомнить соответствия между словами и жестами, а также развивает мелкую моторику рук.
+          </li>
+          <li>
+            <strong>«Повтори фразу»</strong><br>
+            Напечатай на бумаге короткие фразы (например, «Красная рыба в море плывёт», «Бабочка летит к цветку», «Пурпурный кот гуляет по двору»). Ребёнок должен прочитать вслух и стараться проговаривать чётко каждое слово. Попроси его сконцентрироваться на гласных и согласных звуках – так улучшается артикуляция и плавность речи. По мере тренировок усложняй тексты, добавляя более длинные предложения.
+          </li>
+          <li>
+            <strong>«Собери слово из звуков»</strong><br>
+            Распечатай набор картинок со звуками (например, «П», «А», «РУК») и отдельные буквы. Предложи ребёнку собрать слово из этих фрагментов (слово «ПАРУК» состоит из «П», «А», «РУК»). После составления попроси его произнести получившееся слово и объяснить его значение. Такая игра развивает фонематический слух и учит разбивать слова на части.
+          </li>
+          <li>
+            <strong>«Вспомни и расскажи»</strong><br>
+            Попроси ребёнка вспомнить события дня (утро, школа, прогулка) и рассказать их вслух. Задавай наводящие вопросы: «Что ты делал после завтрака?», «Кого ты видел на прогулке?», «О чём ты думал, гуляя?» Игра тренирует память, навык рассказа и умение логически связывать события.
+          </li>
+        </ul>
+        <p>Все игры можно проводить как самостоятельно, так и с помощью родителей или учителя. Важно обсуждать с ребёнком результаты, задавать вопросы о том, как он придумал ответ, и хвалить его за старание. Постепенно усложняй задания: добавляй больше слов, увеличивай длину рассказов и вводи новые звуки.</p>
+      </div>
+      <div class="section-card">
+        <h3>Скороговорки и рифмовки</h3>
+        <p>Скороговорки и рифмовки помогают развивать чёткое произношение, дыхание и речевой слух. Здесь ты найдёшь упражнения разного уровня сложности, а также советы, как правильно тренироваться:</p>
+        <ul>
+          <li>
+            <strong>Упражнения для начинающих</strong><br>
+            <ul>
+              <li>Шла Саша по шоссе и сосала сушку</li>
+              <li>Карл у Клары украл кораллы, а Клара у Карла украла кларнет</li>
+              <li>Жили у бабуси два весёлых гуся</li>
+            </ul>
+            <p>Совет: сначала медленно проговаривай фразу, концентрируясь на каждом звуке. Постепенно ускоряй темп, соблюдая чёткость. Старайся не «глотать» слова.</p>
+          </li>
+          <li>
+            <strong>Средний уровень сложности</strong><br>
+            <ul>
+              <li>От топота копыт пыль по полю летит</li>
+              <li>Тридцать три корабля лавировали, лавировали, да не вылавировали</li>
+              <li>На дворе трава, на траве дрова. Не руби дрова на траве двора</li>
+            </ul>
+            <p>Совет: при произнесении обращай внимание на сочетания «тр», «др», «рова». Дыши глубоко, произнося длинные фразы, чтобы тренировать лёгкие и голосовые связки.</p>
+          </li>
+          <li>
+            <strong>Продвинутый уровень</strong><br>
+            <ul>
+              <li>Шетландский шериф шепчет: «Щётка щенкам нужна»</li>
+              <li>Бык тупогуб, тупогубенький бычок, у быка губа тупа</li>
+              <li>Как у Клары кларнет, а у Клары – кларнета нет</li>
+            </ul>
+            <p>Совет: перед началом разогрей губы и язык. Повторяй каждую скороговорку по 10–15 раз, постепенно увеличивая скорость, но не теряя чёткости. Следи за артикуляцией звуков «ш», «щ», «б», «г».</p>
+          </li>
+        </ul>
+        <p><strong>Бонус: стихотворные рифмовки для тренировки дыхания</strong></p>
+        <blockquote>
+          В лесу родилась ёлочка, в лесу она росла,<br>
+          Зимой и летом стройная, зелёная была.
+        </blockquote>
+        <p>Постепенно увеличивай длину стихотворения: сначала одна строка, затем две, затем полный куплет. Читай чётко, стараясь не сбиваться на «эхо» в конце слов. Это упражнение помогает развить плавность речи и управление дыханием.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>surdohelp.ru &copy; 2025 | Поддержка глухих и слабослышащих</p>
+  </footer>
+
+  <script>
+    const alphabetVideoData = [
+      { letter: "А", video: "videos/a.mp4" },
+      { letter: "Б", video: "videos/b.mp4" },
+      { letter: "В", video: "videos/v.mp4" },
+      { letter: "Г", video: "videos/g.mp4" },
+      { letter: "Д", video: "videos/d.mp4" },
+      { letter: "Е", video: "videos/e.mp4" },
+      { letter: "Ж", video: "videos/zh.mp4" },
+      { letter: "З", video: "videos/z.mp4" },
+      { letter: "И", video: "videos/i.mp4" },
+      { letter: "Й", video: "videos/j.mp4" },
+      { letter: "К", video: "videos/k.mp4" },
+      { letter: "Л", video: "videos/l.mp4" },
+      { letter: "М", video: "videos/m.mp4" },
+      { letter: "Н", video: "videos/n.mp4" },
+      { letter: "О", video: "videos/o.mp4" },
+      { letter: "П", video: "videos/p.mp4" },
+      { letter: "Р", video: "videos/r.mp4" },
+      { letter: "С", video: "videos/s.mp4" },
+      { letter: "Т", video: "videos/t.mp4" },
+      { letter: "У", video: "videos/u.mp4" },
+      { letter: "Ф", video: "videos/f.mp4" },
+      { letter: "Х", video: "videos/h.mp4" },
+      { letter: "Ц", video: "videos/ts.mp4" },
+      { letter: "Ч", video: "videos/ch.mp4" },
+      { letter: "Ш", video: "videos/sh.mp4" },
+      { letter: "Щ", video: "videos/sch.mp4" },
+      { letter: "Ы", video: "videos/y.mp4" },
+      { letter: "Ь", video: "videos/soft.mp4" },
+      { letter: "Э", video: "videos/e2.mp4" },
+      { letter: "Ю", video: "videos/yu.mp4" },
+      { letter: "Я", video: "videos/ya.mp4" }
+    ];
+
+    window.onload = function () {
+      const alphabetButtons = document.getElementById("alphabet-buttons");
+      const videoPlayer = document.getElementById("sign-video");
+
+      alphabetVideoData.forEach(item => {
+        const btn = document.createElement("button");
+        btn.textContent = item.letter;
+        btn.onclick = () => {
+          videoPlayer.src = item.video;
+        };
+        alphabetButtons.appendChild(btn);
+      });
+
+      // Установим первое видео по умолчанию
+      if (alphabetVideoData.length > 0) {
+        videoPlayer.src = alphabetVideoData[0].video;
+      }
+    };
+  </script>
+</body>
+</html>
